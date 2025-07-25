@@ -66,6 +66,9 @@ public class Fracture : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (!enabled)
+            return;
+            
         if (triggerOptions.triggerType == TriggerType.Collision)
         {
             if (collision.contactCount > 0)
@@ -91,6 +94,9 @@ public class Fracture : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (!enabled)
+            return;
+
         if (triggerOptions.triggerType == TriggerType.Trigger)
         {
             // Colliding object tag must be in the set of allowed collision tags if filtering by tag is enabled
